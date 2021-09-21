@@ -16,7 +16,7 @@ args = sys.argv[1:]
 system_name = platform.system()
 is_linux = system_name == 'Linux' or system_name == 'Darwin'
 firmware_path = sys.path[0] / Path('firmware')
-pio_build_path = Path('.pio/build/esp32doit-devkit-v1-serial/')
+pio_build_path = Path('.pio/build/esp32dev/')
 runtime_path = Path(os.path.dirname(sys.executable))
 
 def has_pio():
@@ -110,7 +110,7 @@ def flash_firmware(serial_port):
         exit(1)
 
     print('Flashing firmware...')
-    os.system('pio run -e esp32doit-devkit-v1-serial -v -t nobuild -t upload --upload-port ' +
+    os.system('pio run -e esp32dev -v -t nobuild -t upload --upload-port ' +
               serial_port)
 
 
